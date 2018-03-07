@@ -9,6 +9,21 @@ body {
   text-align: center;
 }
 
+#content {
+  margin-top: 1em;
+}
+
+.column {
+  padding: 1em;
+}
+
+/* make the map image responsive */
+img {
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  min-width: 100px;
+}
 
 footer {
   font-size: 0.8em;

@@ -35,7 +35,18 @@
   <div class="container">
 
     <h2>Weather App</h2>
-    <div>Show local weather with geolocation and use of the <a href="https://openweathermap.org/api" target="_blank">OpenWeatherMap API</a></div>
+    <div id="description">Show local weather with
+       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation" target="_blank">geolocation</a>
+        and use of the <a href="https://openweathermap.org/api" target="_blank">OpenWeatherMap API</a></div>
+    <div class="row" id="content">
+      <div class="one-half column" id="location">
+        <div id="out"></div>
+      </div>
+      <div class="one-half column" id="weather">
+        <div id="weather-out"></div>
+      </div>
+    </div>
+    <br/>
     <hr />
     <footer>ya Weather App, 2018</footer>
 
