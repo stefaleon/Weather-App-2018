@@ -15,3 +15,9 @@
 ## 01 Geolocation
 
 * Display the current location.
+
+
+&nbsp;
+## 02 Get weather data
+
+* Fetch weather data from the OpenWeatherMap API.
