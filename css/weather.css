@@ -11,6 +11,8 @@ body {
 
 #content {
   margin-top: 2em;
+  background-color: #fcfcfc;
+  padding: 1em;
 }
 
 .column {
@@ -33,4 +35,9 @@ footer {
 #weatherImg {
   width: 100px;
   height: 100px;
+}
+
+#geolocation-out, #weather-out {
+  background-color: white;
+  padding: 1em;
 }

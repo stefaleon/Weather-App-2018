@@ -24,7 +24,7 @@ if ("geolocation" in navigator) {
 
     console.log(url);
 
-    var weatherDiv = document.querySelector("#weather");
+    var weatherDiv = document.querySelector("#weather-out");    
 
     fetch(url).then(function(res){
       console.log("res is:", res);
@@ -32,12 +32,38 @@ if ("geolocation" in navigator) {
     }).then(function(data){
       console.log("Parsed data is an object:", data);
       var imgSource = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-      var tempC = Math.round(data.main.temp) + "°C";
-      var tempF = Math.round((data.main.temp*9/5)+32) + "°F";
-      weatherDiv.innerHTML = `<p>${data.name}, ${data.sys.country}</p>
-                              <img id="weatherImg" src=${imgSource} />
-                              <p>${data.weather[0].description}</p>
-                              <p>${tempC} / ${tempF}</p>`;
+      var tempC = Math.round(data.main.temp);
+      var tempF = Math.round((data.main.temp*9/5)+32);
+      var temp = tempC;
+      var CelsOrFahr = "°C";
+
+      var data1 = `<div id="weather-data"
+                                style="padding: 2em;
+                                        background: #fefefc;
+                                        cursor: pointer">
+                                <h5>${data.name}, ${data.sys.country}</h5>
+                                <img id="weatherImg" src=${imgSource} />
+                                <h5>${data.weather[0].description}</h5>
+                                <h1>`
+
+      var data2 =              `</h1>
+                              </div>`;
+
+      weatherDiv.innerHTML = data1 + `${temp} ${CelsOrFahr}` + data2;
+
+      weatherDiv.addEventListener("click", () => {
+        if (temp === tempC) {
+          temp = tempF;
+          CelsOrFahr = "°F";
+        } else {
+          temp = tempC;
+          CelsOrFahr = "°C";
+        }
+        weatherDiv.innerHTML = data1 + `${temp} ${CelsOrFahr}` + data2;
+      });
+
+
+
     }).catch(function(error){
       console.log("Error!", error);
     });

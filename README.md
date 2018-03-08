@@ -26,4 +26,10 @@
 &nbsp;
 ## 03 Improvements
 
-* Tidy ip code and display more weather data.
+* Tidy up code and display more weather data.
+
+
+&nbsp;
+## 04 Toggle C/F
+
+* Add logic for toggling between Celsius and Fahrenheit. 
