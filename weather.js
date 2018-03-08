@@ -1,6 +1,6 @@
 if ("geolocation" in navigator) {
   console.log("geolocation is available");
-  var output = document.getElementById("out");
+  var output = document.getElementById("geolocation-out");
 
   // call geolocation.getCurrentPosition
   navigator.geolocation.getCurrentPosition(success, error);
@@ -12,15 +12,15 @@ if ("geolocation" in navigator) {
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;
 
-    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+    output.innerHTML = `<p>Latitude is ${latitude}° <br>Longitude is ${longitude}°</p>`;
 
     var img = new Image();
-    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=10&size=300x300&sensor=false";
+    img.src = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=10&size=300x300&sensor=false`;
 
     output.appendChild(img);
 
     // proceed with fetching the weather data from the openweathermap API
-    var url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=b937724d4d3febfcc804ce1e1965fc68`;
+    var url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=b937724d4d3febfcc804ce1e1965fc68&units=metric`;
 
     console.log(url);
 
@@ -31,13 +31,16 @@ if ("geolocation" in navigator) {
       return res.json();
     }).then(function(data){
       console.log("Parsed data is an object:", data);
-      weatherDiv.innerHTML = `<p>Temperature: ${data.main.temp}</p>
-                              <p>Weather: ${data.weather[0].main}</p>
-                              <p>Description: ${data.weather[0].description}</p>`;
+      var imgSource = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+      var tempC = Math.round(data.main.temp) + "°C";
+      var tempF = Math.round((data.main.temp*9/5)+32) + "°F";
+      weatherDiv.innerHTML = `<p>${data.name}, ${data.sys.country}</p>
+                              <img id="weatherImg" src=${imgSource} />
+                              <p>${data.weather[0].description}</p>
+                              <p>${tempC} / ${tempF}</p>`;
     }).catch(function(error){
       console.log("Error!", error);
     });
-
 
   }
 

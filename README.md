@@ -21,3 +21,9 @@
 ## 02 Get weather data
 
 * Fetch weather data from the OpenWeatherMap API.
+
+
+&nbsp;
+## 03 Improvements
+
+* Tidy ip code and display more weather data.
