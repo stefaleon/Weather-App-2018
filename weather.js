@@ -20,11 +20,11 @@ if ("geolocation" in navigator) {
     output.appendChild(img);
 
     // proceed with fetching the weather data from the openweathermap API
-    var url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=b937724d4d3febfcc804ce1e1965fc68&units=metric`;
+    var url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=b937724d4d3febfcc804ce1e1965fc68&units=metric`;
 
     console.log(url);
 
-    var weatherDiv = document.querySelector("#weather-out");    
+    var weatherDiv = document.querySelector("#weather-out");
 
     fetch(url).then(function(res){
       console.log("res is:", res);

@@ -32,4 +32,14 @@
 &nbsp;
 ## 04 Toggle C/F
 
-* Add logic for toggling between Celsius and Fahrenheit. 
+* Add logic for toggling between Celsius and Fahrenheit.
+
+
+&nbsp;
+## 05 cors-anywhere.herokuapp.com
+
+* Change the API to
+```
+https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/...
+```
+to check if deployment in github pages gets unblocked...
