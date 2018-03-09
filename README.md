@@ -38,8 +38,22 @@
 &nbsp;
 ## 05 cors-anywhere.herokuapp.com
 
-* Change the API to
+* In order to unblock the https restrictions for the github pages deployment, add the *cors-anywhere.herokuapp.com* in the beginning of the url for the OpenWeatherMap API.
+
 ```
 https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/...
 ```
-to check if deployment in github pages gets unblocked...
+
+
+&nbsp;
+## 06 Google Static Maps API
+
+* Get a key for the Google Static Maps API in order to display the map in all browsers.
+
+  * Go to Developer Console -> APIs & auth -> APIs
+  
+    * Search for Geocoding and click on Google Maps Geocoding API -> Enable API.
+    * Search for Geolocation and click on Google Maps Geolocation API -> Enable API.
+    * Ensure that the APIs are enabled for the specific project.
+
+  * Go to [Google Static Maps API ](https://developers.google.com/maps/documentation/static-maps/support?authuser=0) and get a key for the specific project.
